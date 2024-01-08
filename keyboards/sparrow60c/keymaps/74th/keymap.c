@@ -99,10 +99,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MAC_BASE_L] = LAYOUT(
-        SPECIAL,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                         KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,
-        KC_GRV,    KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_6,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
+        SPECIAL,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                         KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_BSLS,
+        KC_GRV,    KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_6,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_EQL,
         CTL_TAB,   KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_LBRC,            KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
-        KC_LSFT,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_RBRC,            KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
+        KC_LSFT,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_RBRC,            KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_BSLS,
                                        SCROLL,   ESC_ENm,  CMD_EN,   KC_SPC,   KC_BTN1,  RS_ENTm,  OPT_JA,   KC_BSPC,  KC_BTN2
     ),
     [_MAC_RAISE_L] = LAYOUT(
@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_LINUX_BASE_L] = LAYOUT(
         SPECIAL,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                         KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,
-        KC_GRV,    KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_6,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
+        KC_GRV,    KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_6,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_EQL,
         CTL_TAB,   KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_LBRC,            KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
         KC_LSFT,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_RBRC,            KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
                                        SCROLL,   ESC_ENl,  CTL_EN,   KC_SPC,   KC_BTN1,  RS_ENTl,  GUI_JA,   KC_BSPC,  KC_BTN2

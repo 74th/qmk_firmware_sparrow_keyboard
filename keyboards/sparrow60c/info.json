@@ -20,7 +20,7 @@
     "url": "",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0x7425",
+        "pid": "0x7437",
         "vid": "0xDA74"
     },
     "layouts": {

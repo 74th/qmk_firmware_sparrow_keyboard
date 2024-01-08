@@ -1,7 +1,7 @@
 {
     "name": "Sparrow60C",
     "vendorId": "0xDA74",
-    "productId": "0x7425",
+    "productId": "0x7437",
     "menus": [],
     "keycodes": ["SCROLL"],
     "matrix": { "cols": 13, "rows": 5 },

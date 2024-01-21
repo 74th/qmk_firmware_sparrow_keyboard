@@ -7,9 +7,9 @@
 
 // clang-format off
 #define SIMPLE_POINTER_REG_LEFT     0x04
-#define SIMPLE_POINTER_LEFT_CLICK   0x01
-#define SIMPLE_POINTER_RIGHT_CLICK  0x02
-#define SIMPLE_POINTER_MIDDLE_CLICK 0x03
+#define SIMPLE_POINTER_LEFT_CLICK   1
+#define SIMPLE_POINTER_RIGHT_CLICK  1 << 1
+#define SIMPLE_POINTER_MIDDLE_CLICK 1 << 2
 // clang-format on
 
 typedef struct {

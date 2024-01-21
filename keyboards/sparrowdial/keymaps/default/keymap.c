@@ -130,3 +130,13 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
     rgblight_setrgb(0x00, 0x00, 0x01);
     return state;
 }
+
+void keyboard_post_init_user(void) {
+  // Customise these values to desired behaviour
+#if POINTING_DEVICE_DEBUG
+  debug_enable=true;
+#endif
+  debug_matrix=true;
+  //debug_keyboard=true;
+  //debug_mouse=true;
+}

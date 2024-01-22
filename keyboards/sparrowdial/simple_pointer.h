@@ -15,9 +15,23 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "pointing_device.h"
+#ifndef SIMPLE_POINTER_TIMEOUT
+#    define SIMPLE_POINTER_TIMEOUT 100
+#endif
 
-void           pointing_device_driver_init(void);
-report_mouse_t pointing_device_driver_get_report(report_mouse_t mouse_report);
-uint16_t       pointing_device_driver_get_cpi(void);
-void           pointing_device_driver_set_cpi(uint16_t cpi);
+#ifndef SIMPLE_POINTER_SCALE
+#    define SIMPLE_POINTER_SCALE 5
+#endif
+
+#ifndef SIMPLE_POINTER_DEBUG_INTERVAL
+#    define SIMPLE_POINTER_DEBUG_INTERVAL 100
+#endif
+
+#ifndef SIMPLE_POINTER_ADDRESS
+#    define SIMPLE_POINTER_ADDRESS 0x0B
+#endif
+
+void           simple_pointer_device_init(void);
+report_mouse_t simple_pointer_get_report(report_mouse_t mouse_report);
+uint16_t       simple_pointer_get_cpi(void);
+void           simple_pointer_set_cpi(uint16_t cpi);

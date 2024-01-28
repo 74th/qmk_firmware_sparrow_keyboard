@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "simple_pointer.h"
 
 // clang-format off
-#define SIMPLE_POINTER_REG_LEFT     0x04
+#define SIMPLE_POINTER_REG_POINTER  0x04
 #define SIMPLE_POINTER_LEFT_CLICK   1
 #define SIMPLE_POINTER_RIGHT_CLICK  1 << 1
 #define SIMPLE_POINTER_MIDDLE_CLICK 1 << 2
@@ -48,7 +48,7 @@ void simple_pointer_device_init(void) {
 }
 
 i2c_status_t read_simple_pointer(simple_pointer_data_t* data) {
-    i2c_status_t status = i2c_readReg(SIMPLE_POINTER_ADDRESS << 1, SIMPLE_POINTER_REG_LEFT, (uint8_t*)data, sizeof(*data), SIMPLE_POINTER_TIMEOUT);
+    i2c_status_t status = i2c_readReg(SIMPLE_POINTER_ADDRESS << 1, SIMPLE_POINTER_REG_POINTER, (uint8_t*)data, sizeof(*data), SIMPLE_POINTER_TIMEOUT);
 
 #ifdef POINTING_DEVICE_DEBUG
     static uint16_t d_timer;
@@ -62,7 +62,7 @@ i2c_status_t read_simple_pointer(simple_pointer_data_t* data) {
 }
 
 report_mouse_t simple_pointer_get_report(report_mouse_t mouse_report) {
-    simple_pointer_data_t           data = {0};
+    simple_pointer_data_t data = {0};
     i2c_status_t status = read_simple_pointer(&data);
 
     if (status == I2C_STATUS_SUCCESS) {
@@ -83,4 +83,5 @@ uint16_t simple_pointer_get_cpi(void) {
     return 0;
 }
 
-void simple_pointer_set_cpi(uint16_t cpi) {}
+void simple_pointer_set_cpi(uint16_t cpi) {
+}

@@ -4,6 +4,4 @@ I2C_DRIVER_REQUIRED = yes
 POINTING_DEVICE_DRIVER = custom
 RGBLIGHT_ENABLE = yes
 
-CONSOLE_ENABLE = yes
-
 SRC += simple_pointer.c

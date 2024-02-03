@@ -5,7 +5,7 @@ import subprocess
 import socket
 
 KEYBOARD = "sparrowdial"
-KEYMAP = "default"
+KEYMAP = "74th"
 
 current = socket.gethostname()
 

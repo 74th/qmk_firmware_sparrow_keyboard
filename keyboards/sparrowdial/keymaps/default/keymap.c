@@ -10,45 +10,6 @@ enum layer_number {
     _LAYER_3,
 };
 
-enum custom_keycodes {
-    SCROLL = SAFE_RANGE,
-};
-bool set_scrolling = false;
-
-#define SCROLL_DIVISOR_H 32.0
-#define SCROLL_DIVISOR_V 32.0
-
-float scroll_accumulated_h = 0;
-float scroll_accumulated_v = 0;
-
-report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
-    if (set_scrolling) {
-        scroll_accumulated_h += (float)mouse_report.x / SCROLL_DIVISOR_H;
-        scroll_accumulated_v += (float)mouse_report.y / SCROLL_DIVISOR_V;
-
-        mouse_report.h = (int8_t)scroll_accumulated_h;
-        mouse_report.v = (int8_t)scroll_accumulated_v;
-
-        scroll_accumulated_h -= (int8_t)scroll_accumulated_h;
-        scroll_accumulated_v -= (int8_t)scroll_accumulated_v;
-
-        mouse_report.x = 0;
-        mouse_report.y = 0;
-    }
-    return mouse_report;
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case SCROLL:
-            set_scrolling = record->event.pressed;
-            break;
-        default:
-            break;
-    }
-    return true;
-}
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * ┌───┬───┬───┬───┬───┐         ┌───┬───┬───┬───┬───┬───┐
@@ -107,7 +68,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-
     switch (get_highest_layer(state)) {
         case _BASE:
             rgblight_sethsv(HSV_BLUE);
@@ -132,11 +92,11 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 }
 
 void keyboard_post_init_user(void) {
-  // Customise these values to desired behaviour
 #if POINTING_DEVICE_DEBUG
-  debug_enable=true;
+    debug_enable=true;
 #endif
-  debug_matrix=true;
-  //debug_keyboard=true;
-  //debug_mouse=true;
+    // debug_matrix=true;
+    // debug_keyboard=true;
+    // debug_mouse=true;
+    rgblight_sethsv(HSV_BLUE);
 }

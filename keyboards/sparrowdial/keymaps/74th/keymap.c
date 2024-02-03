@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_6,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_EQL,
         KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_LBRC,            KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
         KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_RBRC,            KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
-                            KC_LCTL,  ESC_ENm,  CMD_EN,   KC_SPC,   KC_LSFT,  RS_ENTm,  OPT_JA,   KC_BSPC,  SPECIAL
+                            KC_LCTL,  ESC_ENm,  CMD_EN,   SFT_SP,   KC_LSFT,  RS_ENTm,  OPT_JA,   KC_BSPC,  SPECIAL
     ),
     [_MAC_RAISE_L] = LAYOUT(
         G(KC_F1), G(KC_F2), G(KC_F3), G(KC_F4), G(KC_F5),                     G(KC_F6), G(KC_F7), G(KC_F8), G(KC_F10),_______,  _______,
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_6,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_EQL,
         KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_LBRC,            KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
         KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_RBRC,            KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
-                            KC_LCTL,  ESC_ENl,  CTL_EN,   KC_SPC,   KC_LSFT,  RS_ENTm,  GUI_JA,   KC_BSPC,  SPECIAL
+                            KC_LCTL,  ESC_ENl,  CTL_EN,   SFT_SP,   KC_LSFT,  RS_ENTm,  GUI_JA,   KC_BSPC,  SPECIAL
     ),
     [_LINUX_RAISE_L] = LAYOUT(
         G(KC_F1), G(KC_F2), G(KC_F3), G(KC_F4), G(KC_F5),                     G(KC_F6), G(KC_F7), G(KC_F8), G(KC_F10),_______,  _______,

@@ -47,7 +47,7 @@ enum custom_keycodes {
 #define SFT_SP   LSFT_T(KC_SPC)
 #define SFT_Z    LSFT_T(KC_Z)
 #define CTL_A    LCTL_T(KC_A)
-#define CTL_QUOT LCTL_T(KC_QUOT)
+#define CTL_QUOT RCTL_T(KC_QUOT)
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {

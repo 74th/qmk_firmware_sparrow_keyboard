@@ -71,10 +71,10 @@ report_mouse_t simple_pointer_get_report(report_mouse_t mouse_report) {
         mouse_report.buttons = pointing_device_handle_buttons(mouse_report.buttons, data.click & SIMPLE_POINTER_RIGHT_CLICK, POINTING_DEVICE_BUTTON2);
         mouse_report.buttons = pointing_device_handle_buttons(mouse_report.buttons, data.click & SIMPLE_POINTER_MIDDLE_CLICK, POINTING_DEVICE_BUTTON3);
 
-        mouse_report.x = data.pointer_x * SIMPLE_POINTER_SCALE;
-        mouse_report.y = data.pointer_y * SIMPLE_POINTER_SCALE;
-        mouse_report.v = data.wheel_v;
-        mouse_report.h = data.wheel_h;
+        mouse_report.x = data.pointer_x * SIMPLE_POINTER_POINTER_SCALE;
+        mouse_report.y = data.pointer_y * SIMPLE_POINTER_POINTER_SCALE;
+        mouse_report.v = data.wheel_v * SIMPLE_POINTER_WHEEL_SCALE;
+        mouse_report.h = data.wheel_h * SIMPLE_POINTER_WHEEL_SCALE;
     }
     return mouse_report;
 }

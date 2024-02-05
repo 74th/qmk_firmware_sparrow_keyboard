@@ -19,8 +19,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define SIMPLE_POINTER_TIMEOUT 100
 #endif
 
-#ifndef SIMPLE_POINTER_SCALE
-#    define SIMPLE_POINTER_SCALE 5
+#ifndef SIMPLE_POINTER_POINTER_SCALE
+#    define SIMPLE_POINTER_POINTER_SCALE 5
+#endif
+
+#ifndef SIMPLE_POINTER_WHEEL_SCALE
+#    define SIMPLE_POINTER_WHEEL_SCALE 2
 #endif
 
 #ifndef SIMPLE_POINTER_DEBUG_INTERVAL

@@ -91,8 +91,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MAC_RAISE_L] = LAYOUT(
         G(KC_F1), G(KC_F2), G(KC_F3), G(KC_F4), G(KC_F5),                     G(KC_F6), G(KC_F7), G(KC_F8), G(KC_F10),_______,  _______,
         KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,              KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,
-        KC_GRV,   S(KC_GRV),S(KC_3),  S(KC_4),  S(KC_5),  S(KC_6),            S(KC_7),  KC_PGDN,  KC_PGUP,  S(KC_0),  KC_UNDS,  KC_EQL,
-        KC_TAB,   S(KC_GRV),PR_WINm,  PR_SCRm,  KC_F12,   _______,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT, KC_HOME,  KC_END,
+        _______,  KC_GRV,   S(KC_GRV),_______,  _______,  _______,            _______,  KC_PGDN,  KC_PGUP,  _______,  _______,  _______,
+        _______,  KC_TAB,   PR_WINm,  PR_SCRm,  KC_F12,   _______,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT, KC_HOME,  KC_END,
                             _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_DEL,   _______
     ),
     [_LINUX_BASE_L] = LAYOUT(
@@ -105,8 +105,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LINUX_RAISE_L] = LAYOUT(
         G(KC_F1), G(KC_F2), G(KC_F3), G(KC_F4), G(KC_F5),                     G(KC_F6), G(KC_F7), G(KC_F8), G(KC_F10),_______,  _______,
         KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,              KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,
-        KC_GRV,   S(KC_GRV),S(KC_3),  S(KC_4),  S(KC_5),  S(KC_6),            S(KC_7),  KC_PGDN,  KC_PGUP,  S(KC_0),  KC_UNDS,  KC_EQL,
-        KC_TAB,   S(KC_GRV),PR_WINm,  PR_SCRm,  KC_F12,   _______,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT, KC_HOME,  KC_END,
+        _______,  KC_GRV,   S(KC_GRV),_______,  _______,  _______,            _______,  KC_PGDN,  KC_PGUP,  _______,  _______,  _______,
+        _______,  KC_TAB,   PR_WINm,  PR_SCRm,  KC_F12,   _______,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT, KC_HOME,  KC_END,
                             _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_DEL,  _______
     ),
     [_SPECIAL_L] = LAYOUT(

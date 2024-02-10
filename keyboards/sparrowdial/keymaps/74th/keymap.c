@@ -9,6 +9,7 @@ enum layer_number {
     _LINUX_BASE_L,
     _LINUX_RAISE_L,
     _SPECIAL_L,
+    _DEMO_L,
 };
 
 enum custom_keycodes {
@@ -17,6 +18,7 @@ enum custom_keycodes {
     ESC_ENl,
     USE_MAC,
     USE_LINUX,
+    USE_DEMO,
 };
 
 #define RS_ENTm LT(_MAC_RAISE_L, KC_ENT)
@@ -94,12 +96,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_ESC);
                 return false;
             case USE_MAC:
-                layer_off(_LINUX_BASE_L);
                 layer_on(_MAC_BASE_L);
+                layer_off(_LINUX_BASE_L);
+                layer_off(_DEMO_L);
                 return false;
             case USE_LINUX:
                 layer_on(_LINUX_BASE_L);
                 layer_off(_MAC_BASE_L);
+                layer_off(_DEMO_L);
+                return false;
+            case USE_DEMO:
+                layer_on(_DEMO_L);
+                layer_off(_MAC_BASE_L);
+                layer_off(_LINUX_BASE_L);
                 return false;
             case KC_ESC:
                 if(IS_LAYER_ON(_LINUX_BASE_L)){
@@ -143,11 +152,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_DEL,  _______
     ),
     [_SPECIAL_L] = LAYOUT(
-        _______,  USE_MAC,  USE_LINUX,_______,  _______,                      _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  USE_MAC,  USE_LINUX,USE_DEMO, _______,                      _______,  _______,  _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,
         KC_CAPS,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,
                             _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______
+    ),
+    [_DEMO_L] = LAYOUT(
+        KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,
+        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_6,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
+        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_LBRC,          KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_RBRC,          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+                          KC_ESC,  KC_LALT, KC_LCTL, KC_SPC,  KC_LGUI, KC_ENT,  KC_BSPC, MO(_MAC_RAISE_L),   KC_MS_BTN1
     )
 };
 
@@ -166,6 +182,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             rgblight_sethsv(21, 0xFF, 0x40);
             break;
         case _SPECIAL_L:
+            rgblight_sethsv(85, 0xFF, 0x20);
+            break;
+        case _DEMO_L:
             rgblight_sethsv(85, 0xFF, 0x20);
             break;
     }

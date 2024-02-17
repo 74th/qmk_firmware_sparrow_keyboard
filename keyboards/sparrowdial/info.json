@@ -1,6 +1,6 @@
 {
     "manufacturer": "74th",
-    "keyboard_name": "sparrowdial",
+    "keyboard_name": "SparrowDial",
     "maintainer": "74th",
     "bootloader": "rp2040",
     "diode_direction": "COL2ROW",

@@ -48,7 +48,7 @@ void simple_pointer_device_init(void) {
 }
 
 i2c_status_t read_simple_pointer(simple_pointer_data_t* data) {
-    i2c_status_t status = i2c_readReg(SIMPLE_POINTER_ADDRESS << 1, SIMPLE_POINTER_REG_POINTER, (uint8_t*)data, sizeof(*data), SIMPLE_POINTER_TIMEOUT);
+    i2c_status_t status = i2c_read_register(SIMPLE_POINTER_ADDRESS << 1, SIMPLE_POINTER_REG_POINTER, (uint8_t*)data, sizeof(*data), SIMPLE_POINTER_TIMEOUT);
 
 #ifdef POINTING_DEVICE_DEBUG
     static uint16_t d_timer;

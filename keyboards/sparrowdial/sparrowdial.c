@@ -1,0 +1,40 @@
+/*
+Copyright 2024 Atsushi Morimoto (@74th)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#include "pointing_device.h"
+#include "simple_pointer.h"
+
+void           pointing_device_driver_init(void);
+report_mouse_t pointing_device_driver_get_report(report_mouse_t mouse_report);
+uint16_t       pointing_device_driver_get_cpi(void);
+void           pointing_device_driver_set_cpi(uint16_t cpi);
+
+void pointing_device_driver_init(void) {
+    simple_pointer_device_init();
+}
+
+report_mouse_t pointing_device_driver_get_report(report_mouse_t mouse_report) {
+    return simple_pointer_get_report(mouse_report);
+}
+
+uint16_t pointing_device_driver_get_cpi(void) {
+    return simple_pointer_get_cpi();
+}
+
+void pointing_device_driver_set_cpi(uint16_t cpi) {
+    simple_pointer_set_cpi(cpi);
+}

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Atsushi Morimoto @74th
+Copyright 2024 Atsushi Morimoto (@74th)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,11 +15,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#include "pointing_device.h"
 
-#define SPLIT_HAND_PIN F4
-
-/* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
-/* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+void           pointing_device_driver_init(void);
+report_mouse_t pointing_device_driver_get_report(report_mouse_t mouse_report);
+uint16_t       pointing_device_driver_get_cpi(void);
+void           pointing_device_driver_set_cpi(uint16_t cpi);

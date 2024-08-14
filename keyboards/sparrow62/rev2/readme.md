@@ -1,5 +1,8 @@
 # sparrow62/rev2
 
+> [!CAUTION]
+> Work in progress
+
 ![sparrow62/rev2](imgur.com image replace me!)
 
 *A short description of the keyboard/project*

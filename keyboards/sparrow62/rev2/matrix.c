@@ -66,12 +66,12 @@ void matrix_init_custom(void) {
     status = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, MCP23017_IOCON_BANK1, &iocon, 1, MCP21017_I2C_TIMEOUT);
     dprintf("set I2C IODIR_A i2c_status_t:%d\n", status);
 
-    // GPIOAをInput Pulldownに設定
+    // GPIOAをInputに設定
     uint8_t      iodir_a  = 0xff;
     status = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, MCP23017_IODIR_A, &iodir_a, 1, MCP21017_I2C_TIMEOUT);
     dprintf("set I2C IODIR_A i2c_status_t:%d\n", status);
 
-    // GPIOBをOutput Pushpullに設定
+    // GPIOBをOutputに設定
     uint8_t      iodir_b  = 0x00;
     status = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, MCP23017_IODIR_B, &iodir_b, 1, MCP21017_I2C_TIMEOUT);
     dprintf("set I2C IODIR_B i2c_status_t:%d\n", status);
@@ -110,6 +110,8 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
                     gpio_write_pin_low(LEFT_COLS[i]);
                 }
             }
+
+            wait_us(100);
 
             for (int row = 0; row < sizeof(LEFT_ROWS); row++) {
                 bool v = gpio_read_pin(LEFT_ROWS[row]);
@@ -159,7 +161,7 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     }
 
     if (debug) {
-        dprintf("scaned 0x%04X 0x%04X 0x%04X 0x%04X\n", scaned_matrix[0], scaned_matrix[1], scaned_matrix[2], scaned_matrix[3]);
+        dprintf("scaned 0x%04X 0x%04X 0x%04X 0x%04X 0x%04X\n", scaned_matrix[0], scaned_matrix[1], scaned_matrix[2], scaned_matrix[3], scaned_matrix[4]);
     }
     return updated;
 }

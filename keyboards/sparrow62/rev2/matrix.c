@@ -48,10 +48,10 @@ uint8_t matrix_init_custom(void) {
         setPinInput(LEFT_ROWS[i]);
     }
     for (int i = 0; i < sizeof(LEFT_COLS); i++) {
-        setPinOutputPushPull(GP5);
+        setPinOutputPushPull(LEFT_COLS[i]);
     }
 
-    uint8_t      buf[]  = {0xff, 0x00};
+    uint8_t      buf[]  = {0xff /* GPIOA as ROW input */, 0x00 /* GPIOB as COL output */};
     i2c_status_t status = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, 0x05, buf, sizeof(buf), MCP21017_I2C_TIMEOUT);
 
     dprintf("set I2C IOCON i2c_status_t:%d\n", status);

@@ -66,12 +66,12 @@ void matrix_init_custom(void) {
     status = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, MCP23017_IOCON_BANK1, &iocon, 1, MCP21017_I2C_TIMEOUT);
     dprintf("set I2C IODIR_A i2c_status_t:%d\n", status);
 
-    // GPIOAをInputに設定
+    // GPIOA（COL2ROWのROW側）をInputに設定
     uint8_t      iodir_a  = 0xff;
     status = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, MCP23017_IODIR_A, &iodir_a, 1, MCP21017_I2C_TIMEOUT);
     dprintf("set I2C IODIR_A i2c_status_t:%d\n", status);
 
-    // GPIOBをOutputに設定
+    // GPIOB（COL2ROWのCOL側）をOutputに設定
     uint8_t      iodir_b  = 0x00;
     status = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, MCP23017_IODIR_B, &iodir_b, 1, MCP21017_I2C_TIMEOUT);
     dprintf("set I2C IODIR_B i2c_status_t:%d\n", status);

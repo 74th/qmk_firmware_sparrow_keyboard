@@ -61,19 +61,19 @@ void matrix_init_custom(void) {
 
     // BANK0ICON設定（念のため）
     uint8_t iocon = 0x00;
-    i2c_status_t status = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, MCP23017_IOCON_BANK0, &iocon, 1, MCP21017_I2C_TIMEOUT);
+    i2c_status_t status = i2c_write_register(MCP23017_I2C_ADDRESS << 1, MCP23017_IOCON_BANK0, &iocon, 1, MCP21017_I2C_TIMEOUT);
     dprintf("set I2C IODIR_A i2c_status_t:%d\n", status);
-    status = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, MCP23017_IOCON_BANK1, &iocon, 1, MCP21017_I2C_TIMEOUT);
+    status = i2c_write_register(MCP23017_I2C_ADDRESS << 1, MCP23017_IOCON_BANK1, &iocon, 1, MCP21017_I2C_TIMEOUT);
     dprintf("set I2C IODIR_A i2c_status_t:%d\n", status);
 
-    // GPIOA（COL2ROWのROW側）をInputに設定
+    // GPIOAをInputに設定
     uint8_t      iodir_a  = 0xff;
-    status = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, MCP23017_IODIR_A, &iodir_a, 1, MCP21017_I2C_TIMEOUT);
+    status = i2c_write_register(MCP23017_I2C_ADDRESS << 1, MCP23017_IODIR_A, &iodir_a, 1, MCP21017_I2C_TIMEOUT);
     dprintf("set I2C IODIR_A i2c_status_t:%d\n", status);
 
-    // GPIOB（COL2ROWのCOL側）をOutputに設定
+    // GPIOBをOutputに設定
     uint8_t      iodir_b  = 0x00;
-    status = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, MCP23017_IODIR_B, &iodir_b, 1, MCP21017_I2C_TIMEOUT);
+    status = i2c_write_register(MCP23017_I2C_ADDRESS << 1, MCP23017_IODIR_B, &iodir_b, 1, MCP21017_I2C_TIMEOUT);
     dprintf("set I2C IODIR_B i2c_status_t:%d\n", status);
 }
 
@@ -123,7 +123,7 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
             // MCP23017側のMatrix
             // COL側、特定のCOLだけHIGHにして、他はLOWにする
             uint8_t      write_buf = RIGHT_COL_BITS[col - sizeof(LEFT_COLS)];
-            i2c_status_t status    = i2c_writeReg(MCP23017_I2C_ADDRESS << 1, MCP23017_GPIO_B, &write_buf, 1, MCP21017_I2C_TIMEOUT);
+            i2c_status_t status    = i2c_write_register(MCP23017_I2C_ADDRESS << 1, MCP23017_GPIO_B, &write_buf, 1, MCP21017_I2C_TIMEOUT);
             if (debug) {
                 dprintf("write I2C GPIOB i2c_status_t:%d value:0x%02X col:%d\n", status, write_buf, col);
             }

@@ -34,11 +34,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef MCP21017_I2C_TIMEOUT
 #    define MCP21017_I2C_TIMEOUT 100
 #endif
-#ifndef DEBUG_INTERVAL
-#    define MCP21017_I2C_TIMEOUT 100
+#ifndef CUSTOM_MATRIX_DEBUG_INTERVAL
+#    define CUSTOM_MATRIX_DEBUG_INTERVAL 500
 #endif
-
-#define CUSTOM_MATRIX_DEBUG_INTERVAL 500
 
 uint8_t LEFT_COLS[]      = {GP5, GP6, GP7, GP8, GP9, GP10, GP11};
 uint8_t LEFT_ROWS[]      = {GP0, GP1, GP2, GP3, GP4};

@@ -91,7 +91,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MAC_BASE_L] = LAYOUT(
     // /-------+-------+-------+-------+-------+-------+-------\                 /-------+-------+-------+-------+-------+-------.
-        G(KC_D),SPECIAL, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                     KC_7,   KC_8,   KC_9,   KC_0,  KC_MINS,KC_BSLS,
+        SPECIAL, KC_GRV, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                     KC_7,   KC_8,   KC_9,   KC_0,  KC_MINS,KC_BSLS,
     // |---------------+-------+-------+-------+-------+-------+-------\ /-------+-------+-------+-------+-------+-------+-------|
             KC_GRV,      KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_6,    KC_BSPC, KC_Y,   KC_U,   KC_I,   KC_O,  KC_P,   KC_EQL,
     // |---------------+-------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+-------+-------|

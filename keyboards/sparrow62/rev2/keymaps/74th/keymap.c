@@ -36,7 +36,7 @@ enum custom_keycodes {
 
 #define RS_ENTm LT(_MAC_RAISE_L, KC_ENT)
 #define RS_ENTl LT(_LINUX_RAISE_L, KC_ENT)
-#define SPECIAL LT(_SPECIAL_L, KC_GRV))
+#define SPECIAL LT(_SPECIAL_L, KC_GRV)
 
 #define TO_MAC DF(_MAC_BASE_L)
 #define TO_LINUX DF(_LINUX_BASE_L)

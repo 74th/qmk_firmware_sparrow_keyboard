@@ -32,6 +32,7 @@ enum custom_keycodes {
     USE_MAC,
     USE_LINUX,
     USE_DEMO,
+    RED,
 };
 
 #define RS_ENTm LT(_MAC_RAISE_L, KC_ENT)
@@ -57,8 +58,14 @@ enum custom_keycodes {
 #define CTL_EN LCTL_T(EISUl)
 #define GUI_JA LGUI_T(KANAl)
 
+bool special_layer_tapped = false;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
+        if(layer_state_is(_SPECIAL_L)) {
+            special_layer_tapped = true;
+        }
+
         switch (keycode) {
             case ESC_ENm:
                 tap_code(EISUm);
@@ -83,6 +90,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_off(_MAC_BASE_L);
                 layer_off(_LINUX_BASE_L);
                 return false;
+            case RED:
+                special_layer_tapped = false;
+                layer_on(_SPECIAL_L);
+                return false;
+        }
+
+    } else if(!record->event.pressed) {
+        switch (keycode) {
+            case RED:
+                layer_off(_SPECIAL_L);
+                if(!special_layer_tapped){
+                    // ZOOM, Meet Mute Button
+                    SEND_STRING(SS_LGUI(SS_LCTL("m")));
+                }
+                return false;
         }
     }
     return true;
@@ -91,7 +113,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MAC_BASE_L] = LAYOUT(
     // /-------+-------+-------+-------+-------+-------+-------\                 /-------+-------+-------+-------+-------+-------.
-        G(KC_D),SPECIAL, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                     KC_7,   KC_8,   KC_9,   KC_0,  KC_MINS,KC_BSLS,
+          RED,  KC_GRV,  KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                     KC_7,   KC_8,   KC_9,   KC_0,  KC_MINS,KC_BSLS,
     // |---------------+-------+-------+-------+-------+-------+-------\ /-------+-------+-------+-------+-------+-------+-------|
             KC_GRV,      KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_6,    KC_BSPC, KC_Y,   KC_U,   KC_I,   KC_O,  KC_P,   KC_EQL,
     // |---------------+-------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+-------+-------|

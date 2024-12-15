@@ -35,12 +35,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 uint8_t LEFT_COLS[]      = {GP2, GP3, GP4, GP5, GP6, GP8, GP9};
 uint8_t LEFT_ROWS[]      = {GP11, GP12, GP13, GP14, GP15};
-uint8_t RIGHT_COL_BITS[] = {1, 1 << 1, 1 << 2, 1 << 3, 1 << 4, 1 << 5, 1 << 6};
+uint8_t RIGHT_COL_BITS[] = {1, 1 << 1, 1 << 2, 1 << 3, 1 << 4, 1 << 5, 1 << 6, 1<<7};
 
 #define LEFT_COLS_SIZE sizeof(LEFT_COLS)
 #define ROW_SIZE sizeof(LEFT_ROWS)
 // 現状1列空ける
-#define RIGHT_COLS_START sizeof(LEFT_COLS) + 1
+#define RIGHT_COLS_START sizeof(LEFT_COLS)
 
 static uint16_t d_timer = 0;
 

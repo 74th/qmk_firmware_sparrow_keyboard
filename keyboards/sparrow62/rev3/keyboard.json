@@ -99,7 +99,7 @@
         }
     },
     "ws2812": {
-        "pin": "GP14",
+        "pin": "GP10",
         "driver": "vendor"
     },
     "rgblight": {

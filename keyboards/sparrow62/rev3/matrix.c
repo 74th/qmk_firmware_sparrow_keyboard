@@ -33,8 +33,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define CUSTOM_MATRIX_DEBUG_INTERVAL 500
 #endif
 
-uint8_t LEFT_COLS[]      = {GP5, GP6, GP7, GP8, GP9, GP10, GP11};
-uint8_t LEFT_ROWS[]      = {GP0, GP1, GP2, GP3, GP4};
+uint8_t LEFT_COLS[]      = {GP2, GP3, GP4, GP5, GP6, GP8, GP9};
+uint8_t LEFT_ROWS[]      = {GP11, GP12, GP13, GP14, GP15};
 uint8_t RIGHT_COL_BITS[] = {1, 1 << 1, 1 << 2, 1 << 3, 1 << 4, 1 << 5, 1 << 6};
 
 #define LEFT_COLS_SIZE sizeof(LEFT_COLS)

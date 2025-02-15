@@ -3,6 +3,8 @@
 
 #pragma once
 
+#define PICO_XOSC_STARTUP_DELAY_MULTIPLIER 64
+
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 14
 

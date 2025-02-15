@@ -19,11 +19,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "pointing_device.h"
 
-<<<<<<<< HEAD:keyboards/sparrowdial/sparrowdial.h
 void           pointing_device_driver_init(void);
 report_mouse_t pointing_device_driver_get_report(report_mouse_t mouse_report);
 uint16_t       pointing_device_driver_get_cpi(void);
 void           pointing_device_driver_set_cpi(uint16_t cpi);
-========
+
 #define RP2040_FLASH_GENERIC_03H
->>>>>>>> origin/master:keyboards/salane/ncr80alpsskfl/config.h

@@ -14,4 +14,4 @@
 #define F_SCL 100000
 
 // 右手左側の追加4キーオプション使用時は1にする
-#define USE_RIGHT_4KEYS 1
+#define USE_RIGHT_4KEYS 0

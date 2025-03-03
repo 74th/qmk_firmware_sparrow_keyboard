@@ -24,6 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "i2c_master.h"
 
 #define RIGHT_I2C_ADDRESS 0x20
+#define RIGHT_4KEYS_I2C_ADDRESS 0x21
 #define BASE_I2C_REGISTER_ADDRESS 0x00
 
 #ifndef I2C_TIMEOUT
@@ -39,7 +40,8 @@ uint8_t RIGHT_COL_BITS[] = {1, 1 << 1, 1 << 2, 1 << 3, 1 << 4, 1 << 5, 1 << 6, 1
 
 #define LEFT_COLS_SIZE sizeof(LEFT_COLS)
 #define ROW_SIZE sizeof(LEFT_ROWS)
-// 現状1列空ける
+
+#define RIGHT_4KEYS_COLS_START sizeof(LEFT_COLS)
 #define RIGHT_COLS_START sizeof(LEFT_COLS)
 
 static uint16_t d_timer = 0;
@@ -100,7 +102,7 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     i2c_status_t status = i2c_read_register(RIGHT_I2C_ADDRESS << 1, BASE_I2C_REGISTER_ADDRESS, read_buf, ROW_SIZE, I2C_TIMEOUT);
 
     if (debug) {
-        dprintf("read I2C i2c_status_t:%d value:0x%02X%02X%02X", status, read_buf[0], read_buf[1], read_buf[2]);
+        dprintf("right I2C i2c_status_t:%d value:0x%02X%02X%02X\n", status, read_buf[0], read_buf[1], read_buf[2]);
     }
 
     if (status == I2C_STATUS_SUCCESS) {
@@ -108,6 +110,30 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
             scaned_matrix[row] |= ((matrix_row_t)read_buf[row] << (RIGHT_COLS_START));
         }
     }
+
+#if USE_RIGHT_4KEYS
+    // 右手の追加4キー
+    status = i2c_read_register(RIGHT_4KEYS_I2C_ADDRESS << 1, BASE_I2C_REGISTER_ADDRESS, read_buf, 1, I2C_TIMEOUT);
+
+    if (debug) {
+        dprintf("4keys I2C i2c_status_t:%d value:0x%02X\n\n", status, read_buf[0]);
+    }
+
+    if (status == I2C_STATUS_SUCCESS) {
+        if(read_buf[0] & (1 << 0)){
+            scaned_matrix[1] |= (1 << RIGHT_4KEYS_COLS_START);
+        }
+        if(read_buf[0] & (1 << 1)){
+            scaned_matrix[2] |= (1 << RIGHT_4KEYS_COLS_START);
+        }
+        if(read_buf[0] & (1 << 2)){
+            scaned_matrix[3] |= (1 << RIGHT_4KEYS_COLS_START);
+        }
+        if(read_buf[0] & (1 << 3)){
+            scaned_matrix[4] |= (1 << RIGHT_4KEYS_COLS_START);
+        }
+    }
+#endif
 
     bool updated = false;
     for (int row = 0; row < MATRIX_ROWS; row++) {

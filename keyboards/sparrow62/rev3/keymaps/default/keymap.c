@@ -94,16 +94,16 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
     switch (get_highest_layer(state)) {
         case _BASE:
-            rgblight_sethsv(HSV_BLUE);
+            rgblight_sethsv(168, 0xFF, 0x20);
             break;
         case _LAYER_1:
-            rgblight_sethsv(HSV_CYAN);
+            rgblight_sethsv(168, 0xFF, 0x40);
             break;
         case _LAYER_2:
-            rgblight_sethsv(HSV_ORANGE);
+            rgblight_sethsv(21, 0xFF, 0x20);
             break;
         case _LAYER_3:
-            rgblight_sethsv(HSV_GREEN);
+            rgblight_sethsv(85, 0xFF, 0x20);
             break;
     }
 

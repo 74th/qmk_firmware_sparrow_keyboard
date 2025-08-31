@@ -102,7 +102,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_off(_SPECIAL_L);
                 if(!special_layer_tapped){
                     // ZOOM, Meet Mute Button
-                    SEND_STRING(SS_LGUI(SS_LCTL("m")));
+                    SEND_STRING(SS_LGUI("d"));
                 }
                 return false;
         }

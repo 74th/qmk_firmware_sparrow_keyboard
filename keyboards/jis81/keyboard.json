@@ -18,8 +18,8 @@
     "url": "",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0xDA74",
-        "vid": "0x7464"
+        "pid": "0x7464",
+        "vid": "0xDA74"
     },
     "layouts": {
         "LAYOUT": {

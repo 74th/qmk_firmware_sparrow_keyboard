@@ -55,6 +55,7 @@ enum custom_keycodes {
 #define CTL_TAB LCTL_T(KC_TAB)
 #define CMD_EN LGUI_T(EISUm)
 #define OPT_JA LALT_T(KANAm)
+#define OPT_ESC LALT_T(KC_ESC)
 #define CTL_EN LCTL_T(EISUl)
 #define GUI_JA LGUI_T(KANAl)
 
@@ -121,7 +122,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |-------+-------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+-------+-------|
        KC_LSFT,  KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,  KC_RBRC,  KC_RSFT, KC_N,   KC_M,  KC_COMM, KC_DOT,KC_SLSH,KC_RSFT,
     // \-------+-------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+-------+-------/
-                                 KC_ESC, ESC_ENm, CMD_EN, KC_SPC, KC_LALT,RS_ENTm,OPT_JA, KC_BSPC
+                                OPT_ESC, ESC_ENm, CMD_EN, KC_SPC, KC_LALT,RS_ENTm,OPT_JA, KC_BSPC
     //                         \-------+-------+-------+-------/  \------+-------+-------+-------/
     ),
 
@@ -135,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |-------+-------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+-------+-------|
         _______,_______,_______,PR_WINm,PR_SCRm,KC_F12, _______,  _______,KC_LEFT,KC_DOWN,KC_UP, KC_RIGHT,KC_HOME,KC_END,
     // \-------+-------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+-------+-------/
-                                _______,_______,_______,_______,  _______,_______,_______,_______
+                                _______,_______,_______,_______,  _______,_______,_______,KC_DEL
     //                         \-------+-------+-------+-------/ \-------+-------+-------+-------/
     ),
 

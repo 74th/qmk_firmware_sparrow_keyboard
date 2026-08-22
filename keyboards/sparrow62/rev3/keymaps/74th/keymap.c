@@ -33,6 +33,10 @@ enum custom_keycodes {
     USE_LINUX,
     USE_DEMO,
     RED,
+    CODEX,
+    CLAUDE,
+
+    // ---
 };
 
 #define RS_ENTm LT(_MAC_RAISE_L, KC_ENT)
@@ -60,6 +64,8 @@ enum custom_keycodes {
 #define GUI_JA LGUI_T(KANAl)
 
 bool special_layer_tapped = false;
+uint8_t codex_model = 0;
+uint8_t claude_model = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
@@ -95,7 +101,59 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 special_layer_tapped = false;
                 layer_on(_SPECIAL_L);
                 return false;
+            case CODEX:
+                SEND_STRING("/model");
+                wait_ms(150);
+                tap_code(KC_ENT);
+                switch (codex_model) {
+                case 0:
+                    // Sol Medium
+                    tap_code(KC_1);
+                    wait_ms(150);
+                    tap_code(KC_2);
+                    codex_model = 1;
+                    break;
+                case 1:
+                    // Luna High
+                    tap_code(KC_3);
+                    wait_ms(150);
+                    tap_code(KC_3);
+                    codex_model = 0;
+                    break;
+                }
+
+                return false;
+            case CLAUDE:
+                tap_code(KC_ENT);
+                switch (claude_model) {
+                case 0:
+                    // Claude Opus Medium
+                    SEND_STRING("/model Opus");
+                    wait_ms(150);
+                    tap_code(KC_ENT);
+                    wait_ms(150);
+                    SEND_STRING("/effort medium");
+                    wait_ms(150);
+                    tap_code(KC_ENT);
+                    claude_model = 1;
+                    break;
+                case 1:
+                    // Claude Sonnet Medium
+                    SEND_STRING("/model Sonnet");
+                    wait_ms(150);
+                    tap_code(KC_ENT);
+                    wait_ms(150);
+                    SEND_STRING("/effort medium");
+                    wait_ms(150);
+                    tap_code(KC_ENT);
+                    claude_model = 0;
+                    break;
+                }
+
+                return false;
         }
+
+        // ---
 
     } else if(!record->event.pressed) {
         switch (keycode) {
@@ -132,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |-------+-------+-------+-------+-------+-------+-------\ /-------+-------+-------+-------+-------+-------+-------|
         KC_ESC, KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,    _______,KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,
     // |-------+-------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+-------+-------|
-       KC_LCTL, S(KC_1),S(KC_2),S(KC_3),S(KC_4),S(KC_5),S(KC_6),  _______,S(KC_7),KC_PGDN,KC_PGUP,S(KC_0),KC_UNDS,KC_EQL,
+       KC_LCTL, S(KC_1),S(KC_2),S(KC_3),CLAUDE ,CODEX,  S(KC_6),  _______,S(KC_7),KC_PGDN,KC_PGUP,S(KC_0),KC_UNDS,KC_EQL,
     // |-------+-------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+-------+-------|
         _______,_______,_______,PR_WINm,PR_SCRm,KC_F12, _______,  _______,KC_LEFT,KC_DOWN,KC_UP, KC_RIGHT,KC_HOME,KC_END,
     // \-------+-------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+-------+-------/

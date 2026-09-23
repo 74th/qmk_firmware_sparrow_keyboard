@@ -107,15 +107,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_ENT);
                 switch (codex_model) {
                 case 0:
-                    // Sol Medium 1, 2
-                    tap_code(KC_1);
+                    // Sol Medium 2, 2
+                    tap_code(KC_2);
                     wait_ms(150);
                     tap_code(KC_2);
                     codex_model = 1;
                     break;
                 case 1:
-                    // Luna High 4, 3
-                    tap_code(KC_4);
+                    // Luna High 3, 3
+                    tap_code(KC_3);
                     wait_ms(150);
                     tap_code(KC_3);
                     codex_model = 0;

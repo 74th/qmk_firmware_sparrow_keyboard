@@ -123,3 +123,4 @@ via*.json
 /keyboards/**/keymaps/vial/*
 
 /compile*.py
+secret.h
